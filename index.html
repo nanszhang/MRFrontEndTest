@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<!--header section-->
+	<div class="row header mb-30">
+		<div class="col-12 text-right">
+			<div class="container">
+			<div class="dropdown">
+				<span class="btn" id="cart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					My Cart (<span id="cartNumber"> 0 </span>)
+				</span>
+				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="cart" id="cartDetail">
+					<div class="dropdown-item cart-list-item">Your shopping cart is currently empty.</div>
+				</div>
+			</div>
+			</div>
+		</div>
+	</div>
+	<!--main body section-->
+	<div class="container">
+		<div class="row main">
+			<div class="col-12 col-sm-6 product-left-column mb-15">
+				<img class="col-12 col-sm-10" src="img/classic-tee.jpg" alt="classic_tee">	
+			</div>
+			<div class="col-12 col-sm-6  product-right-column mb-15">
+				<div class="product-overview">
+					<h5 class="mb-30 product-name">Classic Tee</h3>
+					<div class="product-pricing mb-30"><b>$75.00</b></div>
+					<div class="product-description mb-30">
+						Lorem ipsum dolor sit amet, consectetuer adipiscing 
+						elit. Aenean commodo ligula eget dolor. Aenean massa 
+						strong. Cum sociis natoque penatibus 
+						et magnis dis parturient montes, nascetur ridiculus 
+						mus. Donec quam felis.
+					</div>
+					<div id="sizes-container" class="mb-15">
+	        			<div class="mb-10">
+	            			<span class="sizes-label">SIZE</span>
+	            			<span class="info-required">*</span>
+	            			<span id="selected-size"></span>
+	            			<div class="validation-error-message">Please Select A Size </div>
+	            		</div>
+	        			<div id="sizeList">    
+	            			<div class="sizeBox" data-productid="P01_S">S</div>
+	            			<div class="sizeBox" data-productid="P01_M">M</div>
+	            			<div class="sizeBox" data-productid="P01_L">L</div>
+	            		</div>
+	    			</div>
+				</div>
+				<button class="btn btn-default" id="addToCart">ADD TO CART</button>
+			</div>
+		</div>
+	</div>
+</body>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script type="text/javascript" src="main.js"></script>
+</html>
