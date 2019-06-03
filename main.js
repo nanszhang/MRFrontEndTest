@@ -1,5 +1,4 @@
 (function(){
-
 	let productList =[{"productID":"P01_S", "name":"Classic Tee","size":"S", "price":"75.00", "imageSrc":"img/classic-tee.jpg"},
 						{"productID":"P01_M", "name":"Classic Tee","size":"M", "price":"75.00", "imageSrc":"img/classic-tee.jpg"},
 						{"productID":"P01_L", "name":"Classic Tee","size":"L", "price":"75.00", "imageSrc":"img/classic-tee.jpg"}]
@@ -7,12 +6,12 @@
     let Cart=[];
     let selectedItem;
 
-    $('.dropdown').on('show.bs.dropdown', function () {
-  		$("#cart").addClass('cartOnClick')
-	})
-	$('.dropdown').on('hide.bs.dropdown', function () {
-  		$("#cart").removeClass('cartOnClick')
-	})
+	  $('.dropdown').on('show.bs.dropdown', function () {
+	  		$("#cart").addClass('cartOnClick')
+		})
+		$('.dropdown').on('hide.bs.dropdown', function () {
+	  		$("#cart").removeClass('cartOnClick')
+		})
 
     function updateCartContent(){
     		$("#cartDetail").empty();
@@ -25,9 +24,9 @@
 								<img class="img-fluid" src="${item.product.imageSrc}">
 							</div>
 							<div class="col-8">
-								<p>${item.product.name}</p>
-								<p>${item.count} x $${item.product.price}</p>
-								<p>Size: ${item.product.size}</p>
+								<div class="mb-10">${item.product.name}</div>
+								<div class="mb-10">${item.count} x <b>$${item.product.price}</b></div>
+								<div class="mb-15">Size: ${item.product.size}</div>
 							</div>
 						</div>
 					</div>`
@@ -40,7 +39,7 @@
 
 	function addToCart(product)
 	{
-		let itemIndex = Cart.findIndex((t)=> t.product.productID===item.productID);
+		let itemIndex = Cart.findIndex((t)=> t.product.productID===product.productID);
 		if(itemIndex>-1)
 		{
 			Cart[itemIndex].count+=1;
