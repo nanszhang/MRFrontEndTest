@@ -16,7 +16,8 @@
 	width: 110px;
 	transition: none;
 }
-.cartOnClick{
+.cartOnClick,
+#cart:hover{
     border: 1px solid rgba(0,0,0,.15);
     border-radius: 0;
     background-color: #fff;
