@@ -1,11 +1,13 @@
 (function(){
-	let productList =[{"productID":"P01_S", "name":"Classic Tee","size":"S", "price":"75.00", "imageSrc":"img/classic-tee.jpg"},
-						{"productID":"P01_M", "name":"Classic Tee","size":"M", "price":"75.00", "imageSrc":"img/classic-tee.jpg"},
-						{"productID":"P01_L", "name":"Classic Tee","size":"L", "price":"75.00", "imageSrc":"img/classic-tee.jpg"}]
+	let productList =[
+	{"productID":"P01_S", "name":"Classic Tee","size":"S", "price":"75.00", "imageSrc":"img/classic-tee.jpg"},
+	{"productID":"P01_M", "name":"Classic Tee","size":"M", "price":"75.00", "imageSrc":"img/classic-tee.jpg"},
+	{"productID":"P01_L", "name":"Classic Tee","size":"L", "price":"75.00", "imageSrc":"img/classic-tee.jpg"}]
 
     let Cart=[];
     let selectedItem;
 
+    //shopping cart button style update on cart detail display
 	  $('.dropdown').on('show.bs.dropdown', function () {
 	  		$("#cart").addClass('cartOnClick')
 		})
@@ -13,6 +15,48 @@
 	  		$("#cart").removeClass('cartOnClick')
 		})
 
+		//select size event
+		$('.sizeBox').on('click',function(){
+			$('.sizeBox').removeClass('selected');
+			$(this).addClass('selected');
+			$("#selected-size").text(this.innerHTML);
+			let  productID= $(this).data('productid');
+			let index = productList.findIndex((item)=> item.productID===productID);
+			if(index>-1)
+			{
+				selectedItem=productList[index];
+			}
+		})
+
+
+		//add To Cart event
+		$('#addToCart').on('click',function(){
+		$('.validation-error-message').css("display", "none");
+		if(selectedItem){
+			addToCart(selectedItem)
+			}else{
+				$('.validation-error-message').css("display", "block");
+			}	
+		})
+
+			//add To Cart Function
+		function addToCart(product){
+				let itemIndex = Cart.findIndex((t)=> t.product.productID===product.productID);
+				if(itemIndex>-1)
+				{
+					Cart[itemIndex].count+=1;
+				}else{
+					let newCartItem={
+						product,
+						count: 1
+					};
+					Cart.push(newCartItem);
+				}
+				updateCartContent();
+			}
+
+
+		//populate shoping cart content
     function updateCartContent(){
     		$("#cartDetail").empty();
     		let list = "";
@@ -36,42 +80,5 @@
     	$('#cartNumber').text(` ${productCount} `)
 		$("#cartDetail").append(list);		
     }
-
-	function addToCart(product)
-	{
-		let itemIndex = Cart.findIndex((t)=> t.product.productID===product.productID);
-		if(itemIndex>-1)
-		{
-			Cart[itemIndex].count+=1;
-		}else{
-			let newCartItem={
-				product,
-				count: 1
-			};
-			Cart.push(newCartItem);
-		}
-		updateCartContent();
-	}
-
-$('#addToCart').on('click',function(){
-
-	$('.validation-error-message').css("display", "none");
-	if(selectedItem){
-		addToCart(selectedItem)
-		}else{
-			$('.validation-error-message').css("display", "block");
-		}	
-})
-
-$('.sizeBox').on('click',function(){
-	$('.sizeBox').removeClass('selected');
-	$(this).addClass('selected');
-	$("#selected-size").text(this.innerHTML);
-	let  productID= $(this).data('productid');
-	let index = productList.findIndex((item)=> item.productID===productID);
-	if(index>-1)
-	{
-		selectedItem=productList[index];
-	}
-})
+    
 })()
