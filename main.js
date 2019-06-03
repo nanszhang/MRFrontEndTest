@@ -7,14 +7,6 @@
     let Cart=[];
     let selectedItem;
 
-    //shopping cart button style update on cart detail display
-	  $('.dropdown').on('show.bs.dropdown', function () {
-	  		$("#cart").addClass('cartOnClick')
-		})
-		$('.dropdown').on('hide.bs.dropdown', function () {
-	  		$("#cart").removeClass('cartOnClick')
-		})
-
 		//select size event
 		$('.sizeBox').on('click',function(){
 			$('.sizeBox').removeClass('selected');
@@ -28,6 +20,13 @@
 			}
 		})
 
+		//shopping cart button style update on cart detail display
+	  $('.dropdown').on('show.bs.dropdown', function () {
+	  		$("#cart").addClass('cartOnClick')
+		})
+		$('.dropdown').on('hide.bs.dropdown', function () {
+	  		$("#cart").removeClass('cartOnClick')
+		})
 
 		//add To Cart event
 		$('#addToCart').on('click',function(){
@@ -80,5 +79,5 @@
     	$('#cartNumber').text(` ${productCount} `)
 		$("#cartDetail").append(list);		
     }
-    
+
 })()
